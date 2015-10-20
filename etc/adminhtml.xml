@@ -1,0 +1,93 @@
+﻿<?xml version="1.0"?>
+<config> 
+    <events>
+      <catalog_product_prepare_save>
+        <observers>
+          <cartex>
+            <type>singleton</type>
+            <class>Wdc_Cartex_Model_Observer</class>
+            <method>catalog_product_prepare_save</method>
+          </cartex>
+        </observers>
+      </catalog_product_prepare_save>
+    </events>  
+  <menu>
+    <promo>
+      <children>
+        <rulestemplate>
+          <title>Cartex Promotion Rules</title>
+          <sort_order>4</sort_order>
+          <action>cartex/adminhtml_entity</action>
+        </rulestemplate>
+          <coupdup>
+              <title>Cartex Coupon Duplicator</title>
+              <sort_order>4</sort_order>
+              <action>cartex/adminhtml_quote</action>
+          </coupdup>
+      </children>
+    </promo>   
+  </menu>
+  <acl>
+    <resources>
+      <all>
+        <title>Allow Everything</title>
+      </all>
+      <admin>
+        <children>
+          <system>
+            <children>
+              <config>
+                <children>
+                  <cartex>
+                    <title>Cartex</title>
+                  </cartex>
+                </children>
+              </config>
+            </children>
+          </system>
+          <promo>
+            <children>
+              <rulestemplate>
+                <title>Cartex Promotion Rules</title>
+                <sort_order>4</sort_order>
+                <action>cartex/adminhtml_entity</action>
+              </rulestemplate>
+                <coupdup>
+                    <title>Cartex Coupon Duplicator</title>
+                    <sort_order>4</sort_order>
+                    <action>cartex/adminhtml_quote</action>
+                </coupdup>
+            </children>
+          </promo>      
+          <system>
+            <children>
+              <config>
+                <children>
+                  <cartex>
+                    <title>WDC - Cartex</title>
+                  </cartex>
+                </children>
+              </config>
+            </children>
+          </system>
+        </children>
+      </admin>
+    </resources>
+  </acl>
+  <translate>
+    <modules>
+      <Wdc_Cartex>
+        <files>
+          <default>Wdc_Cartex.csv</default>
+        </files>
+      </Wdc_Cartex>
+    </modules>
+  </translate>
+  <layout>
+    <updates>
+      <cartex>
+        <file>wdc_cartex.xml</file>
+      </cartex>
+    </updates>
+  </layout> 
+</config>
